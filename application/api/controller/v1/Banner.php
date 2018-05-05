@@ -7,6 +7,7 @@
  */
 
 namespace app\api\controller\v1;
+use app\api\controller\validate\IDMustBePostiveint;
 use app\api\controller\validate\TestValidate;
 use think\Validate;
 
@@ -22,15 +23,17 @@ class Banner
     public function getBanner($id){
         //独立验证
         //验证器
-        $data = [
-            'name' => '',
-            'email' => '',
-        ];
+        (new IDMustBePostiveint())->goCheck();
 
-        $validate = new TestValidate();
-
-        $result = $validate->batch()->check($data);
-        var_dump($validate->getError());
+//        $data = [
+//            'id' =>$id
+//        ];
+//
+//        $validate = new IDMustBePostiveint();
+//
+//        $result = $validate->batch()->check($data);
+//
+//        var_dump($validate->getError());
 
 
     }

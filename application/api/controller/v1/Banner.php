@@ -7,6 +7,7 @@
  */
 
 namespace app\api\controller\v1;
+use app\api\controller\validate\TestValidate;
 use think\Validate;
 
 
@@ -26,10 +27,7 @@ class Banner
             'email' => '',
         ];
 
-        $validate = new Validate([
-            'name' => 'require|max:10',
-            'email' => 'email'
-        ]);
+        $validate = new TestValidate();
 
         $result = $validate->batch()->check($data);
         var_dump($validate->getError());

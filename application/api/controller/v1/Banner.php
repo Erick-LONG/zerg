@@ -8,9 +8,8 @@
 
 namespace app\api\controller\v1;
 use app\api\controller\validate\IDMustBePostiveint;
-use app\api\controller\validate\TestValidate;
-use think\Validate;
-
+use app\api\model\Banner as BannerModel;
+use think\Exception;
 
 class Banner
 {
@@ -25,6 +24,9 @@ class Banner
         //验证器
         (new IDMustBePostiveint())->goCheck();
 
+        $banner = BannerModel::getBannerByID($id);
+
+        return $banner;
 //        $data = [
 //            'id' =>$id
 //        ];

@@ -9,10 +9,12 @@
 namespace app\api\model;
 
 
+use think\Db;
+
 class Banner
 {
  public static function getBannerByID($id){
-     //TODO:根据Banner ID号获取banner信息
-     return 'this is banner info';
+    $result = Db::table('banner_item')->where('banner_id','=',$id)->select();
+     return $result;
  }
 }

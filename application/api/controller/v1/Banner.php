@@ -25,12 +25,14 @@ class Banner
         //验证器
         (new IDMustBePostiveint())->goCheck();
 
-        $banner = BannerModel::getBannerByID($id);
+        $banner = BannerModel::with(['items','items.img'])->find($id);
+
+        //$banner = BannerModel::getBannerByID($id);
 
         if (!$banner){
             throw new BannerMissException();
         }
-        return json($banner);
+        return $banner;
 //        $data = [
 //            'id' =>$id
 //        ];

@@ -25,9 +25,7 @@ class Banner
         //验证器
         (new IDMustBePostiveint())->goCheck();
 
-        $banner = BannerModel::with(['items','items.img'])->find($id);
-
-        //$banner = BannerModel::getBannerByID($id);
+        $banner = BannerModel::getBannerByID($id);
 
         if (!$banner){
             throw new BannerMissException();

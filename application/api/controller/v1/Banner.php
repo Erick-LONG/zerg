@@ -7,7 +7,7 @@
  */
 
 namespace app\api\controller\v1;
-use app\api\controller\validate\IDMustBePostiveint;
+use app\api\validate\IDMustBePostiveint;
 use app\api\model\Banner as BannerModel;
 use app\lib\exception\BannerMissException;
 use think\Exception;

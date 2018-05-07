@@ -6,7 +6,7 @@
  * Time: 16:47
  */
 
-namespace app\api\controller\validate;
+namespace app\api\validate;
 
 
 use think\Validate;

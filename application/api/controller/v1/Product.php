@@ -20,7 +20,8 @@ class Product
         if (!$products){
             throw new ProductException();
         }
-
+        $collection = collection($products);
+        $products = $collection->hidden(['summary']);
         return json($products);
     }
 }
